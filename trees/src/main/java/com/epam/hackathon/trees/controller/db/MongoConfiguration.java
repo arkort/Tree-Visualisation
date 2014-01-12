@@ -13,7 +13,7 @@ public class MongoConfiguration {
 
 	public @Bean
 	MongoDbFactory mongoDbFactory() throws Exception {
-		return new SimpleMongoDbFactory(new MongoClient(), "test");
+		return new SimpleMongoDbFactory(new MongoClient("localhost", 27017), "test");
 	}
  
 	public @Bean

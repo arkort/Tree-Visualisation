@@ -4,9 +4,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Epam Trees</title>
 </head>
 <body>
- Hello World!!!
+	<h1>Welcome to Epam Trees.</h1>
+	<form action="./saveTree" method="post">
+		<input type="submit"  name="Save Tree" title="Save Tree">
+	</form>
+	<form action="./removeTree" method="post">
+		<input type="submit" name="Remove Tree" title="Remove Tree">
+	</form>
 </body>
+<script type="text/javascript" src="./js/lib/jquery-1.10.2.min.js"></script>
 </html>
