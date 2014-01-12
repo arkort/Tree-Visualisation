@@ -1,4 +1,4 @@
-package com.epam.hackathon.trees.controller.db.domain;
+package com.epam.hackathon.trees.domain;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
