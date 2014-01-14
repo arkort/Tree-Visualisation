@@ -6,13 +6,13 @@
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd	
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-	<!-- Scans within the base package of the application for @Components to 
-		configure as beans -->
+	<mvc:default-servlet-handler/>
+	<mvc:annotation-driven/>
 	<context:component-scan base-package="com.epam.hackathon.trees.controller">
 		<context:include-filter type="annotation"
 			expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
-	
+	<mvc:resources mapping="/**" location="/" />
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
     	<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
