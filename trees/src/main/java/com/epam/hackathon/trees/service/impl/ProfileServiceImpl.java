@@ -13,7 +13,8 @@ public class ProfileServiceImpl implements ProfileService{
 	
 	@Resource
 	ProfileDao profileDao;
-
+	
+	@Override
 	public Profile createProfile(String firstName, String lastName, long id) {
 		return profileDao.create(new Profile(firstName, lastName, id));
 	}
