@@ -15,6 +15,7 @@
 		if (canvas.getContext) {
 			var context = canvas.getContext('2d');
 			drawFractalTree(context);
+			animation(context);
 		} else {
 			alert("HTML5 Canvas isn't supported by your browser!");
 		}
@@ -28,6 +29,7 @@
 	function drawTree(context, x1, y1, angle, depth) {
 
 		var BRANCH_LENGTH = random(0, 20);
+		var oldData = [];
 
 		if (depth != 0) {
 			var x2 = x1 + (cos(angle) * depth * BRANCH_LENGTH);
@@ -35,6 +37,7 @@
 
 			drawLine(context, x1, y1, x2, y2, depth);
 			drawTree(context, x2, y2, angle - random(15, 20), depth - 1);
+			drawTree(context, x2, y2, angle + random(15, 20), depth - 1);
 			drawTree(context, x2, y2, angle + random(15, 20), depth - 1);
 		}
 	}
@@ -71,8 +74,38 @@
 	function random(min, max) {
 		return min + Math.floor(Math.random() * (max + 1 - min));
 	}
+	function animation(context) {
+		// 		setInterval(function(){
+		// 			drawTree(context, 800, 800, -90, 11);
+		// 		}, 1000);
+	};
 </script>
-
+<script type="text/javascript">
+	function saveProfile(){
+		$.ajax({
+			type : "POST",
+			url : "./saveProfile",
+			data : {
+				name : "John",
+				location : "Boston"
+			}
+		}).done(function(msg) {
+			alert("Profile Saved");
+		});
+	}
+	function getAllProfiles() {
+		$.ajax({
+			type : "GET",
+			url : "./getAllProfiles",
+			data : {
+				name : "John",
+				location : "Boston"
+			}
+		}).done(function(msg) {
+			alert(msg);
+		});
+	}
+</script>
 </head>
 <body>
 	<div id="header">
@@ -86,6 +119,11 @@
 		<form action="./saveProfile" method="post">
 			<input type="submit" value="Save Profile" title="Save Profile">
 		</form>
+
+		<div>
+			<a onclick="saveProfile()" href="#">Save Tree</a>
+			<a onclick="getAllProfiles()" href="#">Get Profile</a>
+		</div>
 	</div>
 	<canvas id="canvas" width="1500" height="800"></canvas>
 	<dir id="footer"></dir>

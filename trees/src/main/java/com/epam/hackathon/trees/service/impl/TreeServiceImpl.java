@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import com.epam.hackathon.trees.dao.TreeDao;
 import com.epam.hackathon.trees.domain.Tree;
 
-@Service("treeService")
+@Service("treeServiceNeo4j")
 public class TreeServiceImpl {
 	@Resource
 	TreeDao treeDao;

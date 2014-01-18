@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class LoginController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String login() {
-		System.out.println("Test commit to git");
-		System.out.println("Test commit to git2");
 		return "index";
 	}
 

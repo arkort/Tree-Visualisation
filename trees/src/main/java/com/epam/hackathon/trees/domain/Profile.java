@@ -1,69 +1,61 @@
 package com.epam.hackathon.trees.domain;
 
-import java.util.List;
+import org.springframework.data.neo4j.annotation.Indexed;
+import org.springframework.data.neo4j.annotation.NodeEntity;
 
-import org.bson.types.ObjectId;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-
-@Document
-public class Profile {
+@NodeEntity
+public class Profile extends AbstractDomain {
 	
-	@Id
-	private Object _id;
-	
-	private long id;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7921942518781646275L;
+	@Indexed
 	private String firstName;
 	private String lastName;
-	private List<Long> treesId;
+	private long employeeId;
+
+	private long treeId;
 	
 	public Profile() {
 	}
-	
-	public Profile(String firstName, String lastName, Long id){
-		set_id(new ObjectId());
+
+	public Profile(String firstName, String lastName, long id) {
 		setFirstName(firstName);
 		setLastName(lastName);
-		setId(id); // i'm not sure
-	}
-	
-	public Object get_id() {
-		return _id;
+		setEmployeeId(id);
 	}
 
-	public void set_id(Object _id) {
-		this._id = _id;
-	}
-
-	public long getId() {
-		return id;
-	}
-	public void setId(long id) {
-		this.id = id;
-	}
 	public String getFirstName() {
 		return firstName;
 	}
+
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
+
 	public String getLastName() {
 		return lastName;
 	}
+
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public List<Long> getTreesId() {
-		return treesId;
-	}
-	public void setTreesId(List<Long> treesId) {
-		this.treesId = treesId;
+
+	public long getEmployeeId() {
+		return employeeId;
 	}
 
-	@Override
-	public String toString() {
-		return "Profile [_id=" + _id + ", id=" + id + ", firstName="
-				+ firstName + ", lastName=" + lastName + ", treesId=" + treesId
-				+ "]";
+	public void setEmployeeId(long employeeId) {
+		this.employeeId = employeeId;
 	}
+
+	public long getTreeId() {
+		return treeId;
+	}
+
+	public void setTreeId(long treeId) {
+		this.treeId = treeId;
+	}
+
 }

@@ -3,32 +3,50 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:security="http://www.springframework.org/schema/security"
 	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xmlns:ehcache="http://ehcache-spring-annotations.googlecode.com/svn/schema/ehcache-spring"
 	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:neo4j="http://www.springframework.org/schema/data/neo4j"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 				http://www.springframework.org/schema/beans/spring-beans.xsd
 				http://www.springframework.org/schema/context
-				http://www.springframework.org/schema/context/spring-context.xsd"
+				http://www.springframework.org/schema/context/spring-context.xsd
+				http://www.springframework.org/schema/data/neo4j
+				http://www.springframework.org/schema/data/neo4j/spring-neo4j-2.0.xsd
+				http://www.springframework.org/schema/mvc
+				http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd"
 	default-autowire="byName">
 
-	<bean id="mongoDbFactory"
-		class="org.springframework.data.mongodb.core.SimpleMongoDbFactory">
-		<constructor-arg>
-			<bean class="com.mongodb.MongoClient">
-				<constructor-arg value="localhost" />
-				<constructor-arg type="int" value="27017" />
-			</bean>
-		</constructor-arg>
-		<constructor-arg value="test"/>
-	</bean>
+	<!-- Mongo -->
+<!-- 	<bean id="mongoDbFactory" -->
+<!-- 		class="org.springframework.data.mongodb.core.SimpleMongoDbFactory"> -->
+<!-- 		<constructor-arg> -->
+<!-- 			<bean class="com.mongodb.MongoClient"> -->
+<!-- 				<constructor-arg value="localhost" /> -->
+<!-- 				<constructor-arg type="int" value="27017" /> -->
+<!-- 			</bean> -->
+<!-- 		</constructor-arg> -->
+<!-- 		<constructor-arg value="test"/> -->
+<!-- 	</bean> -->
 
-	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
-		<constructor-arg ref="mongoDbFactory"></constructor-arg>
+<!-- 	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate"> -->
+<!-- 		<constructor-arg ref="mongoDbFactory"></constructor-arg> -->
+<!-- 	</bean> -->
+<!-- 	<context:component-scan base-package="com.epam.hackathon.trees.dao"> -->
+<!-- 		<context:include-filter type="annotation" -->
+<!-- 			expression="org.springframework.stereotype.Repository" /> -->
+<!-- 	</context:component-scan> -->
+	<!-- Mongo end -->
+	<mvc:annotation-driven />
+	<!-- Neo4j -->
+	<bean id="graphDatabaseService" class="org.neo4j.kernel.EmbeddedGraphDatabase"
+		destroy-method="shutdown">
+		<constructor-arg value="/Neo4j/data/graph.db" />
 	</bean>
-	<context:component-scan base-package="com.epam.hackathon.trees.dao">
-		<context:include-filter type="annotation"
-			expression="org.springframework.stereotype.Repository" />
-	</context:component-scan>
+	<neo4j:config graphDatabaseService="graphDatabaseService" />
+	<neo4j:repositories base-package="com.epam.hackathon.trees.dao"/>
+	<!-- Neo4j end -->
+	
 	<context:component-scan base-package="com.epam.hackathon.trees.service">
 		<context:include-filter type="annotation"
 			expression="org.springframework.stereotype.Service" />
