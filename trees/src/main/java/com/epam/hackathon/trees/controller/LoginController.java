@@ -6,11 +6,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class LoginController {
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String login() {
 		System.out.println("Test commit to git");
-		System.out.println("Test commit to git2");
 		return "index";
 	}
-
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String signin() {
+		return "login";
+	}
+	
+	@RequestMapping(value = "/signfail", method = RequestMethod.GET)
+	public String signinFailure() {
+		return "login";
+	}
+	
 }

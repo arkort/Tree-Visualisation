@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="sec"	uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -77,6 +79,7 @@
 <body>
 	<div id="header">
 		<h1>Welcome to Epam Trees.</h1>
+		<a href="<c:url value="/j_spring_security_logout"/>">Logout</a>
 		<form action="./saveTree" method="post">
 			<input type="submit" value="Save Tree" title="Save Tree">
 		</form>
@@ -86,6 +89,7 @@
 		<form action="./saveProfile" method="post">
 			<input type="submit" value="Save Profile" title="Save Profile">
 		</form>
+		
 	</div>
 	<canvas id="canvas" width="1500" height="800"></canvas>
 	<dir id="footer"></dir>
