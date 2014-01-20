@@ -38,7 +38,6 @@
 			drawLine(context, x1, y1, x2, y2, depth);
 			drawTree(context, x2, y2, angle - random(15, 20), depth - 1);
 			drawTree(context, x2, y2, angle + random(15, 20), depth - 1);
-			drawTree(context, x2, y2, angle + random(15, 20), depth - 1);
 		}
 	}
 
@@ -109,24 +108,16 @@
 </head>
 <body>
 	<div id="header">
-		<h1>Welcome to Epam Trees.</h1>
-		<form action="./saveTree" method="post">
-			<input type="submit" value="Save Tree" title="Save Tree">
-		</form>
-		<form action="./removeTree" method="post">
-			<input type="submit" value="Remove Tree" title="Remove Tree">
-		</form>
-		<form action="./saveProfile" method="post">
-			<input type="submit" value="Save Profile" title="Save Profile">
-		</form>
-
-		<div>
-			<a onclick="saveProfile()" href="#">Save Tree</a>
-			<a onclick="getAllProfiles()" href="#">Get Profile</a>
-		</div>
+		<h1>Epam Trees</h1>
+		<ul style="list-style: none; float: left;">
+			<li style=""><a onclick="saveProfile()" href="javascript:void(0)">Youe Own Tree</a></li>
+			<li style=""><a onclick="getAllProfiles()" href="javascript:void(0)">Epam Forest</a></li>
+		</ul>
 	</div>
 	<canvas id="canvas" width="1500" height="800"></canvas>
 	<dir id="footer"></dir>
 </body>
 <script type="text/javascript" src="./js/lib/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="./js/lib/knockout-3.0.0.js"></script>
+<script type="text/javascript" src="./js/main.js"></script>
 </html>

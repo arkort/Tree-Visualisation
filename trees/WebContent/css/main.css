@@ -5,6 +5,11 @@
 	padding: 0;
 }
 
+a {
+	text-decoration: none;
+	color: white;
+}
+
 html {
 	width: 100%;
 	height: 100%;
@@ -18,16 +23,38 @@ body {
 }
 
 #header {
-	height: 70px;
 	left: 0;
 	position: fixed;
 	top: 0;
 	width: 100%;
-	background: #FFF;
+	background: #8EC8FA;
 	z-index: 1;
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 	-webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 	-moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+#header > *{
+	float: left;
+	color: white;
+}
+#header > h1{
+	margin: 16px;
+}
+
+#header li {
+	float: left;
+	height: 100%;
+	padding: 16px 25px;
+	border-right: #000 solid 1px;
+	border-left: #000 solid 1px;
+}
+
+#header li:HOVER {
+	background:  #48A8FC;
+}
+#header li:FIRST-CHILD{
+	border-right: none;
 }
 
 #footer {

@@ -41,7 +41,7 @@
 	<!-- Neo4j -->
 	<bean id="graphDatabaseService" class="org.neo4j.kernel.EmbeddedGraphDatabase"
 		destroy-method="shutdown">
-		<constructor-arg value="/Neo4j/data/graph.db" />
+		<constructor-arg value="/HackathonDB/Neo4j/data/graph.db" />
 	</bean>
 	<neo4j:config graphDatabaseService="graphDatabaseService" />
 	<neo4j:repositories base-package="com.epam.hackathon.trees.dao"/>
