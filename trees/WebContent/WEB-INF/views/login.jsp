@@ -4,13 +4,11 @@
 <%@ page session="true"%>
 <html>
 <head>
-<title>Sign In</title>
+<title>EPAMolizer</title>
 </head>
 <body>
-	<h1>Spring Security - Sign In</h1>
+	<h1>Welcome to Epam Socializer!</h1>
 
-	<div style="color: red">${message}</div>
-	
 	<form class="login-form" action="j_spring_security_check" method="post">
 			<label for="j_username">Username: </label>
 		 	<input id="j_username" name="j_username" size="20" maxlength="50" type="text" />
@@ -20,5 +18,6 @@
 			
 			<input type="submit" value="Login" />
 	</form>
+	<div style="color: red">${error}</div>
 </body>
 </html>
