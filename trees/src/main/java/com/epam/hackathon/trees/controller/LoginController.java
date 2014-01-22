@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class LoginController {
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String index() {
-		System.out.println("Test commit to git");
 		return "index";
 	}
 	
@@ -23,5 +22,4 @@ public class LoginController {
 		model.addAttribute("error", "Bad Credential");
 		return "login";
 	}
-	
 }
