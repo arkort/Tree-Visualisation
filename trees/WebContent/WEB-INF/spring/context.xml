@@ -8,7 +8,7 @@
 
 	<mvc:default-servlet-handler/>
 	<mvc:annotation-driven/>
-	<context:component-scan base-package="com.epam.hackathon.trees.controller">
+	<context:component-scan base-package="com.epam.hackathon.trees.web.controller">
 		<context:include-filter type="annotation"
 			expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>

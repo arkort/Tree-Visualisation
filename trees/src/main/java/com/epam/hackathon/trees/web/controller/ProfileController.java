@@ -1,4 +1,4 @@
-package com.epam.hackathon.trees.controller;
+package com.epam.hackathon.trees.web.controller;
 
 import java.util.List;
 

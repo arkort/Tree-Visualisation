@@ -10,7 +10,7 @@ import com.epam.hackathon.trees.dao.ProfileDao;
 import com.epam.hackathon.trees.domain.Profile;
 import com.epam.hackathon.trees.service.ProfileService;
 
-@Service("profileServiceNeo4j")
+@Service("profileService")
 public class ProfileServiceImpl implements ProfileService{
 	
 	@Resource
