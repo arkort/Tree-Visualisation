@@ -17,6 +17,7 @@
 		if (canvas.getContext) {
 			var context = canvas.getContext('2d');
 			drawFractalTree(context);
+			animation(context);
 		} else {
 			alert("HTML5 Canvas isn't supported by your browser!");
 		}
@@ -30,6 +31,7 @@
 	function drawTree(context, x1, y1, angle, depth) {
 
 		var BRANCH_LENGTH = random(0, 20);
+		var oldData = [];
 
 		if (depth != 0) {
 			var x2 = x1 + (cos(angle) * depth * BRANCH_LENGTH);
@@ -73,8 +75,38 @@
 	function random(min, max) {
 		return min + Math.floor(Math.random() * (max + 1 - min));
 	}
+	function animation(context) {
+		// 		setInterval(function(){
+		// 			drawTree(context, 800, 800, -90, 11);
+		// 		}, 1000);
+	};
 </script>
-
+<script type="text/javascript">
+	function saveProfile(){
+		$.ajax({
+			type : "POST",
+			url : "./saveProfile",
+			data : {
+				name : "John",
+				location : "Boston"
+			}
+		}).done(function(msg) {
+			alert("Profile Saved");
+		});
+	}
+	function getAllProfiles() {
+		$.ajax({
+			type : "GET",
+			url : "./getAllProfiles",
+			data : {
+				name : "John",
+				location : "Boston"
+			}
+		}).done(function(msg) {
+			alert(msg);
+		});
+	}
+</script>
 </head>
 <body>
 	<div id="header">
@@ -95,4 +127,6 @@
 	<dir id="footer"></dir>
 </body>
 <script type="text/javascript" src="./js/lib/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="./js/lib/knockout-3.0.0.js"></script>
+<script type="text/javascript" src="./js/main.js"></script>
 </html>

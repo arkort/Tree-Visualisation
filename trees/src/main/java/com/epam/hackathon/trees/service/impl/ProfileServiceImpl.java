@@ -1,5 +1,7 @@
 package com.epam.hackathon.trees.service.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -16,7 +18,13 @@ public class ProfileServiceImpl implements ProfileService{
 	
 	@Override
 	public Profile createProfile(String firstName, String lastName, long id) {
-		return profileDao.create(new Profile(firstName, lastName, id));
+//		return profileDao.create(new Profile(firstName, lastName, id));
+		return profileDao.save(new Profile(firstName, lastName, id));
+	}
+
+	@Override
+	public List<Profile> getAllProfiles() {
+		return profileDao.findAll().as(List.class);
 	}
 
 }
