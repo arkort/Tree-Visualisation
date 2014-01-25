@@ -33,7 +33,7 @@ public class LoginServiceImpl implements AuthenticationProvider {
 			e.printStackTrace();
 		}
 		if (flag) {
-			List<GrantedAuthority> grantedAuths = new ArrayList<>();
+			List<GrantedAuthority> grantedAuths = new ArrayList<GrantedAuthority>();
 			grantedAuths.add(new SimpleGrantedAuthority("ROLE_USER"));
 			Authentication auth = new UsernamePasswordAuthenticationToken(name,
 					password, grantedAuths);
