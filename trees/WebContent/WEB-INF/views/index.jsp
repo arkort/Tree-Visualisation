@@ -128,5 +128,7 @@
 </body>
 <script type="text/javascript" src="./js/lib/jquery-1.10.2.min.js"></script>
 <script type="text/javascript" src="./js/lib/knockout-3.0.0.js"></script>
+<script type="text/javascript" src="./js/lib/atom.js"></script>
+<script type="text/javascript" src="./js/lib/libcanvas.js"></script>
 <script type="text/javascript" src="./js/main.js"></script>
 </html>
